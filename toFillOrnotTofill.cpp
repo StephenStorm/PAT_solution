@@ -1,5 +1,6 @@
 //2019.4.3
-//уБ╣юлБд©╩╗╥яак╢Са©й╠╪Дё╛ртнрд©г╟╣дк╝ф╫ю╢к╣йг╠х╫о╨дй╠╣др╩╣юлБд©ё╛оёмШху╨Стык╒й╠©ирт╦дифё╛╬║а©лА╦ъкы╤х 
+//Х╢╙Е©┐ + Ф╗║Ф▀÷
+//Х©≥И│⌠И╒≤Г⌡╝Х┼╠Х╢╧Д╨├Е╓╖И┤▐Ф≈╤И≈╢О╪▄Д╩╔Ф┬▒Г⌡╝Е┴█Г └Ф╟╢Е╧ЁФ²╔Х╞╢Ф≤╞Ф╞■Х╬┐Х─≈Ф≈╤Г └Д╦─И│⌠И╒≤Г⌡╝О╪▄Е╦▄Ф°⌡Ф≈╔Е░▌Е├█Е┬╥Ф≈╤Е▐╞Д╩╔Ф■╧Е√└О╪▄Е╟╫И┤▐Ф▐░И╚≤И─÷Е╨╕ 
 #include<stdio.h>
 #include<algorithm>
 #include<vector>
@@ -27,6 +28,7 @@ int main(){
 	} 
 	stas[n].price = 0;
 	stas[n].distance = dis; 
+	//Е╞╧Ф┴─Ф°┴Е┼═Ф╡╧Г╚≥Ф▄┴Г┘╖Х╥²Г╕╩Д╩▌Е╟▐Е┬╟Е╓╖Х©⌡Х║▄Ф▌▓Е╨▐
 	sort(stas.begin(),stas.end(),cmp);
 	if(stas[0].distance!=0){
 		printf("The maximum travel distance = 0.00");
@@ -38,12 +40,12 @@ int main(){
 		i=current + 1;
 		minIndex = i;
 		minPrice = stas[i].price;
-		if(stas[i].distance>pass+maxdis){//бЗоДсм╡╩дэ╣╫╢Ообр╩д©╣д╣ь 
+		if(stas[i].distance>pass+maxdis){//Ф╩║Г╝╠Ф╡╧Д╦█Х┐╫Е┬╟Х╬╬Д╦▀Д╦─Г⌡╝Г └Е°╟ 
 			printf("The maximum travel distance = %.2f",pass+maxdis);
 			return 0;
 		}
 		while(i<=n&&stas[i].distance<=pass+maxdis){
-			if(stas[i].price<stas[current].price){
+			if(stas[i].price<stas[current].price){//Ф┴╬Е┬╟Г╛╛Д╦─Д╦╙Е╟▐Д╨▌Е╫⌠Е┴█Е┼═Ф╡╧Г╚≥Д╩╥Ф═╪Г └Е┼═Ф╡╧Г╚≥
 				minPrice = stas[i].price;
 				minIndex = i;
 				break;
@@ -55,16 +57,16 @@ int main(){
 			i++;
 		}
 		float tmp = (stas[minIndex].distance-pass)/davg;
-		if(minPrice>stas[current].price){  //н╢ур╣╫╠х╣╠г╟╪ссму╬╪ш╦Я╦Э╣м╣добр╩╪ссму╬ 
+		if(minPrice>stas[current].price){  //Ф°╙Ф┴╬Е┬╟Ф╞■Е╫⌠Е┴█Е┼═Ф╡╧Г╚≥Д╩╥Ф═╪Ф⌡╢Д╫▌Г └Д╦▀Д╦─Е┼═Ф╡╧Г╚≥ 
 			inc = cmax - left;
 			left = 	cmax - tmp;
 		}
-		else{//ур╣╫╦Э╣м╪ш╦Я╣д╪ссму╬ 
-			if(tmp>left){//хГ╧Шйёоб╣дсм╡╩дэ╣╫╢Ообр╩╪ссму╬ё╛тРлМ╪с╣╫г║╨ц©ирт╣╫╢О 
+		else{//Ф┴╬Е┬╟Ф⌡╢Д╫▌Д╩╥Ф═╪Г └Е┼═Ф╡╧Г╚≥ 
+			if(tmp>left){//Е╕┌Ф·°Е┴╘Д╦▀Г └Ф╡╧Д╦█Х┐╫Е┬╟Х╬╬Д╦▀Д╦─Е┼═Ф╡╧Г╚≥О╪▄Е┬≥Ф╥╩Е┼═Е┬╟Ф│╟Е╔╫Е▐╞Д╩╔Е┬╟Х╬╬ 
 				inc = tmp-left;
 				left = 0;
 			}
-			else{//йёоб╣дсм©ирт╣╫╢Ообр╩╪ссму╬ё╛╡╩сц╪ссмё╛ж╩пч╦дйёсЮсма© 
+			else{//Е┴╘Д╦▀Г └Ф╡╧Е▐╞Д╩╔Е┬╟Х╬╬Д╦▀Д╦─Е┼═Ф╡╧Г╚≥О╪▄Д╦█Г■╗Е┼═Ф╡╧О╪▄Е▐╙Д©╝Ф■╧Е┴╘Д╫≥Ф╡╧И┤▐ 
 				inc = 0;
 				left -= tmp;
 			}
