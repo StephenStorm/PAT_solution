@@ -1,5 +1,4 @@
 //2019.5.26
-//Î´Íê³É
 #include<stdio.h>
 #include<vector>
 #include<queue>
@@ -42,7 +41,7 @@ int main(){
 			continue;
 		} 
 		if(nodes[tmp].child.empty()) count++;
-		//¸Ã½ÚµãÎªÒ¶½Úµã
+		//¸该节点为叶节点
 		else{
 			for(i=0;i<nodes[tmp].child.size();i++){
 				que.push(nodes[tmp].child[i]);
