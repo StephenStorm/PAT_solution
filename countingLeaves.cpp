@@ -1,5 +1,5 @@
 //2019.5.26
-//未完成
+//脦麓脥锚鲁脡
 #include<stdio.h>
 #include<vector>
 #include<queue>
@@ -15,7 +15,7 @@ int main(){
 	#endif
 	int n,m,i,j,tid,k,tmp;
 	scanf("%d %d",&n,&m);
-	if(n==1) {printf("0");return 0;} 
+	if(n==1) {printf("1");return 0;} 
 	vector<node> nodes(n+1);
 	for(i=0;i<m;i++){
 		scanf("%d %d",&tid,&k);
@@ -42,7 +42,7 @@ int main(){
 			continue;
 		} 
 		if(nodes[tmp].child.empty()) count++;
-		//该节点为叶节点
+		//赂脙陆脷碌茫脦陋脪露陆脷碌茫
 		else{
 			for(i=0;i<nodes[tmp].child.size();i++){
 				que.push(nodes[tmp].child[i]);
