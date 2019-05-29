@@ -1,0 +1,84 @@
+//2019 1
+#include<iostream>
+#include<vector>
+using namespace std;
+bool isPrime(int n){
+	if(n<2) return false;
+	if(n==2) return true;
+	for(int i=2;i*i<=n;i++){
+		if(n%i==0) return false;
+	}
+	return true;
+}
+int main(){
+	int a,b,diff,tmp;
+	vector<int> array;
+	cin>>a>>b;
+	/*method 1
+	for(int i=a;i<=b;i++){
+		if(isPrime(i)){
+			if(array.empty()) array.push_back(i);
+			else{
+				if(array.size()==1) {
+					diff = i-array.back();
+					array.push_back(i);
+				}
+				else{
+					if(i-array.back()==diff) array.push_back(i);
+					else{
+						if(array.size()>2) {
+							printf("%d",array[0]);
+							for(int j=1;j<array.size();j++){
+								printf(" %d",array[j]);
+							}
+							printf("\n");
+							array.clear();
+						}
+						else{
+							tmp = array.back();
+							array.clear();
+							array.push_back(tmp);
+							array.push_back(i);
+							diff =  i-tmp;
+						}
+						
+					}
+				}
+			}
+		}
+	}
+	if(array.size()>2){
+		printf("%d",array[0]);
+		for(int i=1;i<array.size();i++)
+			printf(" %d",array[i]);
+	} 
+	*/
+	//method 2  better
+	for(int i=a;i<=b;i++)
+		if(isPrime(i))
+			array.push_back(i);
+	vector<int> res;
+	int start = 0,end;
+	diff=array[1]-array[0];
+	for(int i=2;i<array.size();i++){
+		if(array[i]-array[i-1] == diff){
+			end = i;
+		}
+		else{
+			if(end-start>1){
+				printf("%d",array[start]);
+				for(int j=start+1;j<=end;j++)
+					printf(" %d",array[j]);
+				printf("\n");
+			}
+			start = i-1;
+			diff = array[i]- array[i-1];
+		}
+	}
+	if(end-start>1){
+		printf("%d",array[start]);
+		for(int j=start+1;j<=end;j++)
+		printf(" %d",array[j]);
+		printf("\n");
+	}
+} 
