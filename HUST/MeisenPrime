@@ -1,0 +1,23 @@
+//MeisenPrime
+#include<stdio.h>
+#include<vector>
+#include<math.h>
+using namespace std;
+bool isPrime(int a){
+	if(a<=3) return true;
+	for(int i=2;i*i<=a;i++){
+		if(a%i==0) return false;
+	}
+	return true;
+} 
+int main(){
+	int m,tmp,i=2,j;
+	scanf("%d",&m);
+	tmp = (1<<i)-1;
+	while(tmp<=m){
+		if(isPrime(tmp))  printf("M(%d) = %d\n",i,tmp);
+		i++;
+		while(!isPrime(i)) i++;
+		tmp = (1<<i)-1;
+	}
+}
